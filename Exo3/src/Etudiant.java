@@ -8,7 +8,7 @@ public class Etudiant {
     private Formation formation;
     private HashMap<Matiere, List<Double>> resultats;
 
-    public Etudiant(Identite id, Formation f, HashMap<Matiere, List<Double>> resultats) {
+    public Etudiant(Identite id, Formation f) {
         this.NIP = id;
         this.formation = f;
         this.resultats = new HashMap<Matiere,List<Double>>();
@@ -59,6 +59,12 @@ public class Etudiant {
 
         double coeff = 0;
 
+        for(int i = 0; i < resultats.size(); i++){
+            // On récupère le coeff
+            coeff = formation.getCoef(resultats.get(i));
+            resultat += this.calculMoyenne(resultats.get(i));
+        }
 
+        return resultat;
     }*/
 }
